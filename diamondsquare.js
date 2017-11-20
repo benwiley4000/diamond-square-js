@@ -77,7 +77,7 @@ function diamondSquare (heightData, level) {
         heightData[xOffset + half * 2][yOffset + 0] +
         heightData[xOffset + 0][yOffset + half * 2] +
         heightData[xOffset + half * 2][yOffset + half * 2]
-      ) / 4 + 0 /* TODO: replace 0 with random number */;
+      ) / 4 + Math.random() * interval;
 
       maxHeight = Math.max(
         maxHeight,
@@ -95,28 +95,28 @@ function diamondSquare (heightData, level) {
         heightData[xOffset + half][yOffset + half] +
         heightData[xOffset + 0][yOffset + 0] +
         heightData[xOffset + half * 2][yOffset + 0]
-      ) / (noTopCorner ? 3 : 4) + 0 /* TODO: replace 0 with random number */;
+      ) / (noTopCorner ? 3 : 4) + Math.random() * interval;
       const noBottomCorner = yOffset + half * 2 + 1 >= heightData.length;
       heightData[xOffset + half][yOffset + half * 2] = (
         heightData[xOffset + half][yOffset + half] +
         (noBottomCorner ? 0 : heightData[xOffset + half][yOffset + half * 3]) +
         heightData[xOffset + 0][yOffset + half * 2] +
         heightData[xOffset + half * 2][yOffset + half * 2]
-      ) / (noBottomCorner ? 3 : 4) + 0 /* TODO: replace 0 with random number */;
+      ) / (noBottomCorner ? 3 : 4) + Math.random() * interval;
       const noLeftCorner = xOffset <= 0;
       heightData[xOffset + 0][yOffset + half] = (
         heightData[xOffset + 0][yOffset + 0] +
         heightData[xOffset + 0][yOffset + half * 2] +
         (noLeftCorner ? 0 : heightData[xOffset - half][yOffset + half]) +
         heightData[xOffset + half][yOffset + half]
-      ) / (noLeftCorner ? 3 : 4) + 0 /* TODO: replace 0 with random number */;
+      ) / (noLeftCorner ? 3 : 4) + Math.random() * interval;
       const noRightCorner = xOffset + half * 2 + 1 >= heightData.length;
       heightData[xOffset + half * 2][yOffset + half] = (
         heightData[xOffset + half * 2][yOffset + 0] +
         heightData[xOffset + half * 2][yOffset + half * 2] +
         heightData[xOffset + half][yOffset + half] +
         (noRightCorner ? 0 : heightData[xOffset + half * 3][yOffset + half])
-      ) / (noRightCorner ? 3 : 4) + 0 /* TODO: replace 0 with random number */;
+      ) / (noRightCorner ? 3 : 4) + Math.random() * interval;
 
       maxHeight = Math.max(
         maxHeight,
